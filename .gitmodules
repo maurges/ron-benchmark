@@ -1,0 +1,3 @@
+[submodule "haskell/ron-hs"]
+	path = haskell/ron-hs
+	url = https://github.com/d86leader/ron-hs

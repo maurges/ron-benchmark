@@ -1,0 +1,2 @@
+Usage: target/debug/rust FILENAME.ron
+	Parse RON file and measure time

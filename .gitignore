@@ -1,0 +1,7 @@
+.hstags
+.stack-work/
+target/
+input/
+
+haskell-exe
+rust-exe
