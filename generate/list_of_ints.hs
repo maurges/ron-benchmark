@@ -16,6 +16,7 @@ main = do
 
 buildOutput = char7 '['
            <> mconcat [intDec (rand n) <> string7 ", " | n <- [0..size]]
+           <> string7 "0"
            <> char7 ']'
     where
         size = 1000000
