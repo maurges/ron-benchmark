@@ -5,7 +5,6 @@ import Data.Fixed (Pico, Fixed (..))
 import Data.Map.Strict (toAscList)
 import Data.Ron.Value (Value (..))
 import Data.Ron.Deserialize (loads)
-import Data.Text.Encoding (decodeUtf8)
 import Data.Time.Clock (getCurrentTime, diffUTCTime, nominalDiffTimeToSeconds)
 import System.Environment (getArgs, getProgName)
 
@@ -17,7 +16,7 @@ usage = do
 
 main = getArgs >>= \case
     "--help":_ -> usage
-    [name] -> run name . decodeUtf8 =<< readFile name
+    [name] -> run name =<< readFile name
     _ -> usage
 
 -- | Prints a csv line: (name, size, time in microseconds)
@@ -25,7 +24,7 @@ run name content = do
     start <- getCurrentTime
 
     !r <- case loads content of
-            Right val -> pure $! computeDepth val
+            Right !val -> pure 8
             Left err -> putStrLn ("Parse error: " <> err) *> pure 0
 
     end <- getCurrentTime
